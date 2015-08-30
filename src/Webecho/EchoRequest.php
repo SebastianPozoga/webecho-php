@@ -1,53 +1,57 @@
 <?php
-require_once "WebechoException.php";
 
 namespace Webecho;
 
-class EchoRequest {
+require_once "WebechoException.php";
 
-	private $sender;
+class EchoRequest
+{
 
-	private $action = null;
-	private $data = null;
-	private $role = 'read';
+    private $sender;
 
-	cost REST_PATH = "/rest/echo";
+    private $action = null;
+    private $data = null;
+    private $role = 'read';
 
-	function __construct($sender) {
-		$this->sender = sender;
-	}
+    const REST_PATH = "/rest/echo";
 
-	function send($sender) {
-		if(!$this->action){
-			throw new WebechoException(
-				"Must set action", WebechoException::PARAMETER_INCORRECT
-			);
-		}
+    function __construct($sender)
+    {
+        $this->sender = sender;
+    }
 
-		if(!$this->action){
-			throw new WebechoException(
-				"Must set data", WebechoException::PARAMETER_INCORRECT
-			);
-		}
+    function send($sender)
+    {
+        if (!$this->action) {
+            throw new WebechoException(
+                "Must set action", WebechoException::PARAMETER_INCORRECT
+            );
+        }
 
-		if(!$this->role){
-			throw new WebechoException(
-				"Must set role", WebechoException::PARAMETER_INCORRECT
-			);
-		}
+        if (!$this->action) {
+            throw new WebechoException(
+                "Must set data", WebechoException::PARAMETER_INCORRECT
+            );
+        }
 
-		if(!$this->data){
-			throw new WebechoException(
-				"Must set data", WebechoException::PARAMETER_INCORRECT
-			);
-		}
+        if (!$this->role) {
+            throw new WebechoException(
+                "Must set role", WebechoException::PARAMETER_INCORRECT
+            );
+        }
 
-		$this->sender->post(self::REST_PATH, array(
-			'token' => $this->sender->getToken(),
-			'action' => $this->action,
-			'role' => $this->role,
-			'data' => $this->data
-		));
-	}
+        if (!$this->data) {
+            throw new WebechoException(
+                "Must set data", WebechoException::PARAMETER_INCORRECT
+            );
+        }
+
+        $this->sender->post(self::REST_PATH, array(
+            'token' => $this->sender->getToken(),
+            'action' => $this->action,
+            'role' => $this->role,
+            'data' => $this->data
+        ));
+    }
 
 }

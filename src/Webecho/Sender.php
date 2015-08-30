@@ -1,34 +1,39 @@
 <?php
-require_once "WebechoException.php";
 
 namespace Webecho;
 
-class Sender {
+require_once "WebechoException.php";
 
-	private $host;
-	private $token;
+class Sender
+{
 
-	function __construct($host, $token) {
-		$this->host = $host;
-		$this->token = $token;
-	}
+    private $host;
+    private $token;
 
-	public function post($path, $data){
+    function __construct($host, $token)
+    {
+        $this->host = $host;
+        $this->token = $token;
+    }
+
+    public function post($path, $data)
+    {
         $data_string = json_encode($data);
 
-        $ch = curl_init($this->host.$path);
+        $ch = curl_init($this->host . $path);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Content-Length: ' . strlen($data_string))
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data_string))
         );
 
         return curl_exec($ch) !== false;
-	}
+    }
 
-	public function getToken(){
-	    return $this->token;
-	}
+    public function getToken()
+    {
+        return $this->token;
+    }
 }
