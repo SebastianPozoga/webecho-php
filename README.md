@@ -1,5 +1,6 @@
 # Webecho-PHP
 PHP client for webecho-service. Make possible use sockets by php. Create api to realtime communication.
+Use https://github.com/SebastianPozoga/webecho-service to serve data.
 
 #install
 add to your composer.json
