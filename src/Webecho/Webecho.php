@@ -34,7 +34,7 @@ class Webecho
         }
 
         $this->config = $config;
-        $this->sender = new Sender($config->host, $config->host);
+        $this->sender = new Sender($config->host, $config->token);
     }
 
     public function emitEcho()

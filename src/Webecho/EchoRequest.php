@@ -17,10 +17,10 @@ class EchoRequest
 
     function __construct($sender)
     {
-        $this->sender = sender;
+        $this->sender = $sender;
     }
 
-    function send($sender)
+    function send()
     {
         if (!$this->action) {
             throw new WebechoException(
@@ -52,6 +52,21 @@ class EchoRequest
             'role' => $this->role,
             'data' => $this->data
         ));
+    }
+
+    public function setAction($action)
+    {
+        $this->action = $action;
+    }
+
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 
 }
