@@ -2,12 +2,29 @@
 PHP client for webecho-service. Make possible use sockets by php. Create api to realtime communication.
 
 #install
-add to your composer.json adn install by
+add to your composer.json
+
+```
+{
+  //...
+
+  "require": {
+    "sebastianpozoga/webecho-php": "dev-master@dev"
+  },
+
+  //...
+}
+```
+
+and install by composer install or update
+
 ```
 composer install
 ```
 
-# Init
+# Example
+
+## Init
 
 ```
 namespace Webecho;
@@ -21,7 +38,7 @@ $webeacho = new Webecho($config);
 
 ```
 
-### Send 
+## Send
 ```
 $echo = $webeacho->echo();
 $echo->setAction('action_name');
@@ -31,3 +48,6 @@ $echo->setData(array(
 ));
 $echo->send();
 ```
+
+## Example project (Symfony2)
+https://github.com/SebastianPozoga/webecho-php-example
