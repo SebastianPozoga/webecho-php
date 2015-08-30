@@ -1,0 +1,27 @@
+{
+  "name": "sebastianpozoga/webecho-php",
+  "description": "PHP client for webecho-service. Make possible use sockets by php. Create api to realtime communication.",
+  "keywords": [
+    "php",
+    "webecho",
+    "socket"
+  ],
+  "homepage": "https://github.com/SebastianPozoga/webecho-php",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sebastian Pożoga",
+      "email": "sebastian@pozoga.eu"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "Webecho": "src/"
+    }
+  }
+}
