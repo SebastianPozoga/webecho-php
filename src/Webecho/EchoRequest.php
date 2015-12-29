@@ -13,7 +13,7 @@ class EchoRequest
     private $data = null;
     private $role = 'read';
 
-    const REST_PATH = "/rest/echo";
+    const REST_PATH = "/rest/emit";
 
     function __construct($sender)
     {
